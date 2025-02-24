@@ -6,6 +6,8 @@ statements in the same file.  Syntax is defined below.
 
 1. Clone the repository to your local machine.
 2. Run `pip install .` in the top level directory to install the command line tool and dependencies.
+If you are developing for the project, you will want to run `pip install -e .` to ensure
+your changes are updated on the fly.
 
 Note: If your system path does not contain a reference to your python installs
 `\Scripts` folder, you will not be able to use the command line option.
@@ -17,6 +19,10 @@ Note: If your system path does not contain a reference to your python installs
 Run the following command to execute a pysql script:
 
 `pysql <file> [-v, -c]`
+
+or
+
+`python -m pysql <file> [-v, -c]`
 
 - -v Verbose mode, log out every statement as it is executed
 - -c Default connection, if no connection hint is defined in the script, use this connection

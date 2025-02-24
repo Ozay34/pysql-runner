@@ -4,7 +4,7 @@ import csv
 import keyring
 from pathlib import Path
 from tabulate import tabulate
-from importlib.metadata import entry_points
+from importlib_metadata import entry_points
 
 PRESET_FILE = os.environ.get("PYSQL_PRESET") or Path.joinpath(Path.home(), "pysql_presets.json")
 DRIVERS = {driver.name: driver for driver in entry_points(group="pysql.drivers")}

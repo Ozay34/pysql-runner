@@ -21,9 +21,10 @@ def p_group_statements(p):
              | statement"""
 
 def p_statement(p):
-    """statement : fragment ';'
+    """statement : fragment
+                 | fragment ';'
                  | fragment python
-                 | fragment """
+                 | fragment python ';'"""
     statement = p[1].strip()
     if len(statement) == 0:
         return
@@ -69,7 +70,7 @@ def p_pyconnection_eval(p):
     #TODO: Eval the python connection
 
 def p_error(p):
-    print(f"Parser error: {p[0]}")
+    print(f"Parser error: {p}")
 
 
 parser = yacc.yacc()
