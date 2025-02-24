@@ -1,0 +1,445 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> run
+Rule 1     run -> run sequence
+Rule 2     run -> sequence
+Rule 3     sequence -> group
+Rule 4     sequence -> connection
+Rule 5     sequence -> python
+Rule 6     connection -> CONN
+Rule 7     connection -> pyconnection
+Rule 8     group -> group statement
+Rule 9     group -> statement
+Rule 10    statement -> fragment ;
+Rule 11    statement -> fragment python
+Rule 12    statement -> fragment
+Rule 13    fragment -> fragment SQL
+Rule 14    fragment -> fragment insert
+Rule 15    fragment -> SQL
+Rule 16    fragment -> insert
+Rule 17    insert -> PYVAR
+Rule 18    insert -> PYVAL
+Rule 19    python -> PYCODE
+Rule 20    pyconnection -> PYCONN
+
+Terminals, with rules where they appear
+
+;                    : 10
+CONN                 : 6
+PYCODE               : 19
+PYCONN               : 20
+PYVAL                : 18
+PYVAR                : 17
+SQL                  : 13 15
+error                : 
+
+Nonterminals, with rules where they appear
+
+connection           : 4
+fragment             : 10 11 12 13 14
+group                : 3 8
+insert               : 14 16
+pyconnection         : 7
+python               : 5 11
+run                  : 1 0
+sequence             : 1 2
+statement            : 8 9
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . run
+    (1) run -> . run sequence
+    (2) run -> . sequence
+    (3) sequence -> . group
+    (4) sequence -> . connection
+    (5) sequence -> . python
+    (8) group -> . group statement
+    (9) group -> . statement
+    (6) connection -> . CONN
+    (7) connection -> . pyconnection
+    (19) python -> . PYCODE
+    (10) statement -> . fragment ;
+    (11) statement -> . fragment python
+    (12) statement -> . fragment
+    (20) pyconnection -> . PYCONN
+    (13) fragment -> . fragment SQL
+    (14) fragment -> . fragment insert
+    (15) fragment -> . SQL
+    (16) fragment -> . insert
+    (17) insert -> . PYVAR
+    (18) insert -> . PYVAL
+
+    CONN            shift and go to state 7
+    PYCODE          shift and go to state 9
+    PYCONN          shift and go to state 11
+    SQL             shift and go to state 12
+    PYVAR           shift and go to state 14
+    PYVAL           shift and go to state 15
+
+    run                            shift and go to state 1
+    sequence                       shift and go to state 2
+    group                          shift and go to state 3
+    connection                     shift and go to state 4
+    python                         shift and go to state 5
+    statement                      shift and go to state 6
+    pyconnection                   shift and go to state 8
+    fragment                       shift and go to state 10
+    insert                         shift and go to state 13
+
+state 1
+
+    (0) S' -> run .
+    (1) run -> run . sequence
+    (3) sequence -> . group
+    (4) sequence -> . connection
+    (5) sequence -> . python
+    (8) group -> . group statement
+    (9) group -> . statement
+    (6) connection -> . CONN
+    (7) connection -> . pyconnection
+    (19) python -> . PYCODE
+    (10) statement -> . fragment ;
+    (11) statement -> . fragment python
+    (12) statement -> . fragment
+    (20) pyconnection -> . PYCONN
+    (13) fragment -> . fragment SQL
+    (14) fragment -> . fragment insert
+    (15) fragment -> . SQL
+    (16) fragment -> . insert
+    (17) insert -> . PYVAR
+    (18) insert -> . PYVAL
+
+    CONN            shift and go to state 7
+    PYCODE          shift and go to state 9
+    PYCONN          shift and go to state 11
+    SQL             shift and go to state 12
+    PYVAR           shift and go to state 14
+    PYVAL           shift and go to state 15
+
+    sequence                       shift and go to state 16
+    group                          shift and go to state 3
+    connection                     shift and go to state 4
+    python                         shift and go to state 5
+    statement                      shift and go to state 6
+    pyconnection                   shift and go to state 8
+    fragment                       shift and go to state 10
+    insert                         shift and go to state 13
+
+state 2
+
+    (2) run -> sequence .
+
+    CONN            reduce using rule 2 (run -> sequence .)
+    PYCODE          reduce using rule 2 (run -> sequence .)
+    PYCONN          reduce using rule 2 (run -> sequence .)
+    SQL             reduce using rule 2 (run -> sequence .)
+    PYVAR           reduce using rule 2 (run -> sequence .)
+    PYVAL           reduce using rule 2 (run -> sequence .)
+    $end            reduce using rule 2 (run -> sequence .)
+
+
+state 3
+
+    (3) sequence -> group .
+    (8) group -> group . statement
+    (10) statement -> . fragment ;
+    (11) statement -> . fragment python
+    (12) statement -> . fragment
+    (13) fragment -> . fragment SQL
+    (14) fragment -> . fragment insert
+    (15) fragment -> . SQL
+    (16) fragment -> . insert
+    (17) insert -> . PYVAR
+    (18) insert -> . PYVAL
+
+  ! shift/reduce conflict for SQL resolved as shift
+  ! shift/reduce conflict for PYVAR resolved as shift
+  ! shift/reduce conflict for PYVAL resolved as shift
+    CONN            reduce using rule 3 (sequence -> group .)
+    PYCODE          reduce using rule 3 (sequence -> group .)
+    PYCONN          reduce using rule 3 (sequence -> group .)
+    $end            reduce using rule 3 (sequence -> group .)
+    SQL             shift and go to state 12
+    PYVAR           shift and go to state 14
+    PYVAL           shift and go to state 15
+
+  ! SQL             [ reduce using rule 3 (sequence -> group .) ]
+  ! PYVAR           [ reduce using rule 3 (sequence -> group .) ]
+  ! PYVAL           [ reduce using rule 3 (sequence -> group .) ]
+
+    statement                      shift and go to state 17
+    fragment                       shift and go to state 10
+    insert                         shift and go to state 13
+
+state 4
+
+    (4) sequence -> connection .
+
+    CONN            reduce using rule 4 (sequence -> connection .)
+    PYCODE          reduce using rule 4 (sequence -> connection .)
+    PYCONN          reduce using rule 4 (sequence -> connection .)
+    SQL             reduce using rule 4 (sequence -> connection .)
+    PYVAR           reduce using rule 4 (sequence -> connection .)
+    PYVAL           reduce using rule 4 (sequence -> connection .)
+    $end            reduce using rule 4 (sequence -> connection .)
+
+
+state 5
+
+    (5) sequence -> python .
+
+    CONN            reduce using rule 5 (sequence -> python .)
+    PYCODE          reduce using rule 5 (sequence -> python .)
+    PYCONN          reduce using rule 5 (sequence -> python .)
+    SQL             reduce using rule 5 (sequence -> python .)
+    PYVAR           reduce using rule 5 (sequence -> python .)
+    PYVAL           reduce using rule 5 (sequence -> python .)
+    $end            reduce using rule 5 (sequence -> python .)
+
+
+state 6
+
+    (9) group -> statement .
+
+    SQL             reduce using rule 9 (group -> statement .)
+    PYVAR           reduce using rule 9 (group -> statement .)
+    PYVAL           reduce using rule 9 (group -> statement .)
+    CONN            reduce using rule 9 (group -> statement .)
+    PYCODE          reduce using rule 9 (group -> statement .)
+    PYCONN          reduce using rule 9 (group -> statement .)
+    $end            reduce using rule 9 (group -> statement .)
+
+
+state 7
+
+    (6) connection -> CONN .
+
+    CONN            reduce using rule 6 (connection -> CONN .)
+    PYCODE          reduce using rule 6 (connection -> CONN .)
+    PYCONN          reduce using rule 6 (connection -> CONN .)
+    SQL             reduce using rule 6 (connection -> CONN .)
+    PYVAR           reduce using rule 6 (connection -> CONN .)
+    PYVAL           reduce using rule 6 (connection -> CONN .)
+    $end            reduce using rule 6 (connection -> CONN .)
+
+
+state 8
+
+    (7) connection -> pyconnection .
+
+    CONN            reduce using rule 7 (connection -> pyconnection .)
+    PYCODE          reduce using rule 7 (connection -> pyconnection .)
+    PYCONN          reduce using rule 7 (connection -> pyconnection .)
+    SQL             reduce using rule 7 (connection -> pyconnection .)
+    PYVAR           reduce using rule 7 (connection -> pyconnection .)
+    PYVAL           reduce using rule 7 (connection -> pyconnection .)
+    $end            reduce using rule 7 (connection -> pyconnection .)
+
+
+state 9
+
+    (19) python -> PYCODE .
+
+    CONN            reduce using rule 19 (python -> PYCODE .)
+    PYCODE          reduce using rule 19 (python -> PYCODE .)
+    PYCONN          reduce using rule 19 (python -> PYCODE .)
+    SQL             reduce using rule 19 (python -> PYCODE .)
+    PYVAR           reduce using rule 19 (python -> PYCODE .)
+    PYVAL           reduce using rule 19 (python -> PYCODE .)
+    $end            reduce using rule 19 (python -> PYCODE .)
+
+
+state 10
+
+    (10) statement -> fragment . ;
+    (11) statement -> fragment . python
+    (12) statement -> fragment .
+    (13) fragment -> fragment . SQL
+    (14) fragment -> fragment . insert
+    (19) python -> . PYCODE
+    (17) insert -> . PYVAR
+    (18) insert -> . PYVAL
+
+  ! shift/reduce conflict for SQL resolved as shift
+  ! shift/reduce conflict for PYCODE resolved as shift
+  ! shift/reduce conflict for PYVAR resolved as shift
+  ! shift/reduce conflict for PYVAL resolved as shift
+    ;               shift and go to state 18
+    CONN            reduce using rule 12 (statement -> fragment .)
+    PYCONN          reduce using rule 12 (statement -> fragment .)
+    $end            reduce using rule 12 (statement -> fragment .)
+    SQL             shift and go to state 20
+    PYCODE          shift and go to state 9
+    PYVAR           shift and go to state 14
+    PYVAL           shift and go to state 15
+
+  ! SQL             [ reduce using rule 12 (statement -> fragment .) ]
+  ! PYVAR           [ reduce using rule 12 (statement -> fragment .) ]
+  ! PYVAL           [ reduce using rule 12 (statement -> fragment .) ]
+  ! PYCODE          [ reduce using rule 12 (statement -> fragment .) ]
+
+    python                         shift and go to state 19
+    insert                         shift and go to state 21
+
+state 11
+
+    (20) pyconnection -> PYCONN .
+
+    CONN            reduce using rule 20 (pyconnection -> PYCONN .)
+    PYCODE          reduce using rule 20 (pyconnection -> PYCONN .)
+    PYCONN          reduce using rule 20 (pyconnection -> PYCONN .)
+    SQL             reduce using rule 20 (pyconnection -> PYCONN .)
+    PYVAR           reduce using rule 20 (pyconnection -> PYCONN .)
+    PYVAL           reduce using rule 20 (pyconnection -> PYCONN .)
+    $end            reduce using rule 20 (pyconnection -> PYCONN .)
+
+
+state 12
+
+    (15) fragment -> SQL .
+
+    ;               reduce using rule 15 (fragment -> SQL .)
+    SQL             reduce using rule 15 (fragment -> SQL .)
+    PYCODE          reduce using rule 15 (fragment -> SQL .)
+    PYVAR           reduce using rule 15 (fragment -> SQL .)
+    PYVAL           reduce using rule 15 (fragment -> SQL .)
+    CONN            reduce using rule 15 (fragment -> SQL .)
+    PYCONN          reduce using rule 15 (fragment -> SQL .)
+    $end            reduce using rule 15 (fragment -> SQL .)
+
+
+state 13
+
+    (16) fragment -> insert .
+
+    ;               reduce using rule 16 (fragment -> insert .)
+    SQL             reduce using rule 16 (fragment -> insert .)
+    PYCODE          reduce using rule 16 (fragment -> insert .)
+    PYVAR           reduce using rule 16 (fragment -> insert .)
+    PYVAL           reduce using rule 16 (fragment -> insert .)
+    CONN            reduce using rule 16 (fragment -> insert .)
+    PYCONN          reduce using rule 16 (fragment -> insert .)
+    $end            reduce using rule 16 (fragment -> insert .)
+
+
+state 14
+
+    (17) insert -> PYVAR .
+
+    ;               reduce using rule 17 (insert -> PYVAR .)
+    SQL             reduce using rule 17 (insert -> PYVAR .)
+    PYCODE          reduce using rule 17 (insert -> PYVAR .)
+    PYVAR           reduce using rule 17 (insert -> PYVAR .)
+    PYVAL           reduce using rule 17 (insert -> PYVAR .)
+    CONN            reduce using rule 17 (insert -> PYVAR .)
+    PYCONN          reduce using rule 17 (insert -> PYVAR .)
+    $end            reduce using rule 17 (insert -> PYVAR .)
+
+
+state 15
+
+    (18) insert -> PYVAL .
+
+    ;               reduce using rule 18 (insert -> PYVAL .)
+    SQL             reduce using rule 18 (insert -> PYVAL .)
+    PYCODE          reduce using rule 18 (insert -> PYVAL .)
+    PYVAR           reduce using rule 18 (insert -> PYVAL .)
+    PYVAL           reduce using rule 18 (insert -> PYVAL .)
+    CONN            reduce using rule 18 (insert -> PYVAL .)
+    PYCONN          reduce using rule 18 (insert -> PYVAL .)
+    $end            reduce using rule 18 (insert -> PYVAL .)
+
+
+state 16
+
+    (1) run -> run sequence .
+
+    CONN            reduce using rule 1 (run -> run sequence .)
+    PYCODE          reduce using rule 1 (run -> run sequence .)
+    PYCONN          reduce using rule 1 (run -> run sequence .)
+    SQL             reduce using rule 1 (run -> run sequence .)
+    PYVAR           reduce using rule 1 (run -> run sequence .)
+    PYVAL           reduce using rule 1 (run -> run sequence .)
+    $end            reduce using rule 1 (run -> run sequence .)
+
+
+state 17
+
+    (8) group -> group statement .
+
+    SQL             reduce using rule 8 (group -> group statement .)
+    PYVAR           reduce using rule 8 (group -> group statement .)
+    PYVAL           reduce using rule 8 (group -> group statement .)
+    CONN            reduce using rule 8 (group -> group statement .)
+    PYCODE          reduce using rule 8 (group -> group statement .)
+    PYCONN          reduce using rule 8 (group -> group statement .)
+    $end            reduce using rule 8 (group -> group statement .)
+
+
+state 18
+
+    (10) statement -> fragment ; .
+
+    SQL             reduce using rule 10 (statement -> fragment ; .)
+    PYVAR           reduce using rule 10 (statement -> fragment ; .)
+    PYVAL           reduce using rule 10 (statement -> fragment ; .)
+    CONN            reduce using rule 10 (statement -> fragment ; .)
+    PYCODE          reduce using rule 10 (statement -> fragment ; .)
+    PYCONN          reduce using rule 10 (statement -> fragment ; .)
+    $end            reduce using rule 10 (statement -> fragment ; .)
+
+
+state 19
+
+    (11) statement -> fragment python .
+
+    SQL             reduce using rule 11 (statement -> fragment python .)
+    PYVAR           reduce using rule 11 (statement -> fragment python .)
+    PYVAL           reduce using rule 11 (statement -> fragment python .)
+    CONN            reduce using rule 11 (statement -> fragment python .)
+    PYCODE          reduce using rule 11 (statement -> fragment python .)
+    PYCONN          reduce using rule 11 (statement -> fragment python .)
+    $end            reduce using rule 11 (statement -> fragment python .)
+
+
+state 20
+
+    (13) fragment -> fragment SQL .
+
+    ;               reduce using rule 13 (fragment -> fragment SQL .)
+    SQL             reduce using rule 13 (fragment -> fragment SQL .)
+    PYCODE          reduce using rule 13 (fragment -> fragment SQL .)
+    PYVAR           reduce using rule 13 (fragment -> fragment SQL .)
+    PYVAL           reduce using rule 13 (fragment -> fragment SQL .)
+    CONN            reduce using rule 13 (fragment -> fragment SQL .)
+    PYCONN          reduce using rule 13 (fragment -> fragment SQL .)
+    $end            reduce using rule 13 (fragment -> fragment SQL .)
+
+
+state 21
+
+    (14) fragment -> fragment insert .
+
+    ;               reduce using rule 14 (fragment -> fragment insert .)
+    SQL             reduce using rule 14 (fragment -> fragment insert .)
+    PYCODE          reduce using rule 14 (fragment -> fragment insert .)
+    PYVAR           reduce using rule 14 (fragment -> fragment insert .)
+    PYVAL           reduce using rule 14 (fragment -> fragment insert .)
+    CONN            reduce using rule 14 (fragment -> fragment insert .)
+    PYCONN          reduce using rule 14 (fragment -> fragment insert .)
+    $end            reduce using rule 14 (fragment -> fragment insert .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for SQL in state 3 resolved as shift
+WARNING: shift/reduce conflict for PYVAR in state 3 resolved as shift
+WARNING: shift/reduce conflict for PYVAL in state 3 resolved as shift
+WARNING: shift/reduce conflict for SQL in state 10 resolved as shift
+WARNING: shift/reduce conflict for PYCODE in state 10 resolved as shift
+WARNING: shift/reduce conflict for PYVAR in state 10 resolved as shift
+WARNING: shift/reduce conflict for PYVAL in state 10 resolved as shift
